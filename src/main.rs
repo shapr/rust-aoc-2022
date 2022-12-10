@@ -12,7 +12,7 @@ fn main() {
 	one_elf.iter().map(|num| num.parse::<u32>().unwrap()).collect()
     }
     ).collect();
-    let sum_elves : Vec<u32> =
+    let mut sum_elves : Vec<u32> =
 	num_elves
 	.iter()
 	.map(|e|
@@ -20,5 +20,9 @@ fn main() {
 	).collect();
     // let my_list = vec![1,2,3];
     // let my_sum : i32 = my_list.iter().sum();
-    println!("{:?}",sum_elves);
+    sum_elves.sort();
+    sum_elves.reverse();
+    let top_three : u32 = sum_elves.as_slice()[0..3].iter().sum();
+    println!("day 1 part 1 {}",sum_elves.first().unwrap());
+    println!("day 1 part 2 {}",top_three);
 }
